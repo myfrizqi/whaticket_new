@@ -236,24 +236,6 @@ const TicketListItem = ({ ticket }) => {
 						</Tooltip>
 					}
 				/>
-				{ticket.status === "pending" && (
-					<Tooltip
-						arrow
-						placement="right"
-						title={ticket.lastMessage || "No Message"}
-					>
-					<ButtonWithSpinner
-						color="primary"
-						variant="contained"
-						className={classes.acceptButton}
-						size="small"
-						loading={loading}
-						onClick={e => handleAcepptTicket(ticket.id)}
-					>
-						{i18n.t("ticketsList.buttons.accept")}
-					</ButtonWithSpinner>
-					</Tooltip>
-				)}
 			</ListItem>
 			<Divider variant="inset" component="li" />
 		</React.Fragment>
