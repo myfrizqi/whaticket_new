@@ -142,7 +142,7 @@ const TicketListItem = ({ ticket }) => {
 				dense
 				button
 				onClick={e => {
-					if (ticket.status === "pending") return;
+					//if (ticket.status === "pending") return;
 					handleSelectTicket(ticket.id);
 				}}
 				selected={ticketId && +ticketId === ticket.id}
@@ -160,9 +160,15 @@ const TicketListItem = ({ ticket }) => {
 						className={classes.ticketQueueColor}
 					></span>
 				</Tooltip>
+				<Tooltip
+                                        arrow
+                                        placement="right"
+                                        title={ticket.lastMessage || "No Message"}
+                                >
 				<ListItemAvatar>
 					<Avatar src={ticket?.contact?.profilePicUrl} />
 				</ListItemAvatar>
+				</Tooltip>
 				<ListItemText
 					disableTypography
 					primary={
@@ -199,6 +205,11 @@ const TicketListItem = ({ ticket }) => {
 						</span>
 					}
 					secondary={
+						<Tooltip
+							arrow
+							placement="right"
+							title={ticket.lastMessage || "No Message"}
+						>
 						<span className={classes.contactNameWrapper}>
 							<Typography
 								className={classes.contactLastMessage}
@@ -222,9 +233,15 @@ const TicketListItem = ({ ticket }) => {
 								}}
 							/>
 						</span>
+						</Tooltip>
 					}
 				/>
 				{ticket.status === "pending" && (
+					<Tooltip
+						arrow
+						placement="right"
+						title={ticket.lastMessage || "No Message"}
+					>
 					<ButtonWithSpinner
 						color="primary"
 						variant="contained"
@@ -235,6 +252,7 @@ const TicketListItem = ({ ticket }) => {
 					>
 						{i18n.t("ticketsList.buttons.accept")}
 					</ButtonWithSpinner>
+					</Tooltip>
 				)}
 			</ListItem>
 			<Divider variant="inset" component="li" />
