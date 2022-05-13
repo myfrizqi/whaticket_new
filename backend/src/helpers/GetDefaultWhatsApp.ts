@@ -3,7 +3,7 @@ import Whatsapp from "../models/Whatsapp";
 
 const GetDefaultWhatsApp = async (): Promise<Whatsapp> => {
   const defaultWhatsapp = await Whatsapp.findOne({
-    where: { isDefault: true }
+    where: { isDefault: 1 }
   });
 
   if (!defaultWhatsapp) {
