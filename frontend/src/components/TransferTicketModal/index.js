@@ -147,7 +147,6 @@ const TransferTicketModal = ({ modalOpen, onClose, ticketid }) => {
 								{...params}
 								label={i18n.t("transferTicketModal.fieldLabel")}
 								variant="outlined"
-								required
 								autoFocus
 								onChange={e => setSearchParam(e.target.value)}
 								InputProps={{
